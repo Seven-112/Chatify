@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 //import main components
@@ -8,6 +8,7 @@ import RoomBar from "./components/RoomBar/RoomBar";
 import SendBox from "./components/Dashboard/SendBox";
 
 // import Dashboard/Channels components
+
 // import One from "./components/Dashboard/1/One";
 import General from "./components/Dashboard/Channels/General";
 import Chatapp from "./components/Dashboard/Channels/Chatapp";
@@ -28,32 +29,23 @@ function App() {
         </div>
         <div className="flex w-5/6 justify-evenly">
           <BrowserRouter>
-            <Switch>
-              <Route path="/channels/chat-app">
-                <Chatapp />
-              </Route>
-              <Route path="/channels/general">
-                <General />
-              </Route>
-              <Route path="/channels/random">
-                <Random />
-              </Route>
-              <Route path="/directmessages/satellite">
-                <Satellite />
-              </Route>
-              <Route path="/directmessages/speedo">
-                <Speedo />
-              </Route>
-              <Route path="/directmessages/friend">
-                <Friend />
-              </Route>
+            <Routes>
+              <Route path="/channels/chat-app" element={<Chatapp />}></Route>
+              <Route path="/channels/general" element={<General />}></Route>
+              <Route path="/channels/random" element={<Random />}></Route>
+              <Route
+                path="/directmessages/satellite"
+                element={<Satellite />}
+              ></Route>
+              <Route path="/directmessages/speedo" element={<Speedo />}></Route>
+              <Route path="/directmessages/friend" element={<Friend />}></Route>
               {/* <Route exact path="/one">
                 <One />
               </Route>
               <Route path="/one/:type">
                 <One />
               </Route> */}
-            </Switch>
+            </Routes>
           </BrowserRouter>
         </div>
       </div>
